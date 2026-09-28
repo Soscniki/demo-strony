@@ -1,3 +1,17 @@
+## Najważniejsze problemy
+
+1. Na telefonie brakuje widocznego przycisku telefonu w nagłówku, a główne CTA prowadzi do formularza kontaktowego, którego na stronie nie ma.
+2. Menu mobilne nie zamyka się klawiszem Escape ani po kliknięciu poza menu.
+3. Przy szerokości 601–800 px układ nagłówka może się nie mieścić.
+4. Zdjęcia galerii animują się przy najechaniu, ale kod nie uwzględnia ograniczenia ruchu w ustawieniach systemu.
+5. Obrazy nie mają `decoding="async"`; adresy Unsplash nie określają rozmiaru zależnie od ekranu.
+6. Opinie i realizacje są przykładowe, ale ich prezentacja może sprawiać wrażenie prawdziwych. Opisy zdjęć nie zawsze jasno zaznaczają, że są stockowe.
+7. E-mail kontaktowy używa nazwy „blackline”, niespójnej z marką CIARACH.
+8. Teksty CTA sugerują umawianie usługi, choć dane i firma są fikcyjne.
+9. Brakuje linku „Przejdź do treści”, który ułatwiłby korzystanie ze strony klawiaturą.
+10. Treść jest poprawnie oznaczona jako polska, ma opis SEO i jeden H1; semantykę i dostępność można jednak poprawić, m.in. przez obsługę fokusu i bardziej jednoznaczne etykiety menu.
+
+```html
 <!-- DEMO PORTFOLIO — CIARACH DETALINIG — FIKCYJNA FIRMA -->
 <!doctype html>
 <html lang="pl">
@@ -8,130 +22,1104 @@
   <meta name="theme-color" content="#111211">
   <title>CIARACH DETALINIG — Auto detailing w Gliwicach | Demo</title>
   <style>
-    :root{color-scheme:dark;--bg:#111211;--surface:#191b1a;--surface-2:#202321;--text:#f3f3ef;--muted:#a6aaa4;--line:#343834;--accent:#c8a878;--max:1180px;--gutter:clamp(20px,5vw,72px)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 "Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;object-fit:cover}button,a{-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}::selection{background:var(--accent);color:#111}
-    .container{width:min(var(--max),calc(100% - 2*var(--gutter)));margin-inline:auto}.eyebrow{display:flex;align-items:center;gap:10px;color:var(--accent);font-size:.72rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase}.eyebrow:before{content:"";width:24px;height:1px;background:currentColor}h1,h2,h3,p{margin-top:0}h1,h2,h3{line-height:1.15;letter-spacing:-.035em}h2{font-size:clamp(2rem,4vw,3.3rem);font-weight:500;margin-bottom:18px} .section{padding:clamp(76px,10vw,132px) 0}.section-head{max-width:660px;margin-bottom:44px}.section-head p{color:var(--muted);max-width:550px;margin:0}
-    .demo-bar{text-align:center;background:#24231f;color:#d9ccb7;font-size:.7rem;letter-spacing:.07em;padding:7px 14px}.header{position:sticky;top:0;z-index:20;background:rgba(17,18,17,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}.nav-wrap{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font-size:1rem;font-weight:800;letter-spacing:.19em;white-space:nowrap}.brand span{color:var(--accent)}.nav-links{display:flex;align-items:center;gap:clamp(18px,3vw,38px);margin-left:auto}.nav-links a,.nav-call{font-size:.8rem;color:#d1d3cf;transition:color .2s}.nav-links a:hover,.nav-call:hover{color:var(--accent)}.nav-call{padding:10px 18px;border:1px solid #686b65;border-radius:2px;color:var(--text)}.menu-toggle{display:none;background:none;color:var(--text);border:1px solid var(--line);width:44px;height:44px;border-radius:2px;align-items:center;justify-content:center;cursor:pointer}.menu-toggle svg{width:20px;height:20px}
-    .hero{min-height:min(760px,calc(100svh - 106px));position:relative;display:flex;align-items:center;overflow:hidden;background:#242523}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,10,9,.88) 0%,rgba(9,10,9,.57) 48%,rgba(9,10,9,.15) 100%),linear-gradient(0deg,rgba(9,10,9,.35),transparent 40%);z-index:1}.hero-image{position:absolute;inset:0}.hero-image img{object-position:center 56%}.hero-content{position:relative;z-index:2;padding-block:90px;max-width:680px}.hero .eyebrow{margin-bottom:22px}.hero h1{font-size:clamp(3.15rem,8vw,6.4rem);font-weight:500;max-width:650px;margin-bottom:20px}.hero p{color:#dedfdb;font-size:clamp(1rem,2vw,1.18rem);max-width:520px;margin-bottom:32px}.hero-actions{display:flex;flex-wrap:wrap;gap:12px}.btn{min-height:50px;padding:12px 20px;display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid transparent;border-radius:2px;font-size:.8rem;font-weight:700;transition:background .2s,border-color .2s,color .2s}.btn-primary{background:var(--accent);color:#171715}.btn-primary:hover{background:#d8bd97}.btn-quiet{border-color:rgba(255,255,255,.54);color:white;background:rgba(20,20,20,.15)}.btn-quiet:hover{border-color:var(--accent);color:var(--accent)}.hero-note{font-size:.7rem!important;letter-spacing:.1em;text-transform:uppercase;color:#c7c9c5!important;margin:26px 0 0!important}
-    .intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,8vw,120px);align-items:start;border-bottom:1px solid var(--line)}.intro h2{max-width:510px;margin:12px 0 0}.intro-copy{padding-top:28px;color:var(--muted);max-width:560px}.intro-copy p{margin-bottom:0}.intro-copy strong{color:var(--text);font-weight:500}
-    .services{background:#151715}.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.service-card{padding:30px;background:var(--bg);min-height:210px;transition:background .2s}.service-card:hover{background:var(--surface)}.service-icon{width:34px;height:34px;color:var(--accent);margin-bottom:24px}.service-icon svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}.service-card h3{font-size:1.1rem;font-weight:500;margin-bottom:10px}.service-card p{font-size:.88rem;color:var(--muted);margin:0;max-width:310px}
-    .gallery-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr;grid-template-rows:245px 245px;gap:14px}.gallery-item{position:relative;overflow:hidden;background:var(--surface);border-radius:3px}.gallery-item:first-child{grid-row:span 2}.gallery-item img{transition:transform .55s cubic-bezier(.2,.7,.2,1);object-position:center}.gallery-item:hover img{transform:scale(1.035)}.gallery-caption{position:absolute;inset:auto 0 0;padding:46px 18px 16px;background:linear-gradient(transparent,rgba(0,0,0,.76));font-size:.78rem;letter-spacing:.03em}.gallery-caption span{display:block;color:#d4d5d0;font-size:.64rem;text-transform:uppercase;letter-spacing:.12em;margin-top:3px}.gallery-note{color:var(--muted);font-size:.72rem;margin:16px 0 0}
-    .why{background:var(--surface)}.why-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,8vw,110px)}.why-intro p{color:var(--muted);max-width:400px}.why-list{border-top:1px solid var(--line)}.why-item{display:grid;grid-template-columns:42px 1fr;gap:12px;padding:20px 0;border-bottom:1px solid var(--line)}.why-num{font-size:.7rem;color:var(--accent);letter-spacing:.1em;padding-top:3px}.why-item h3{font-size:1rem;font-weight:500;margin:0 0 6px}.why-item p{font-size:.85rem;color:var(--muted);margin:0}
-    .reviews{background:#151715}.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.review-card{border:1px solid var(--line);padding:26px;background:var(--bg);display:flex;flex-direction:column;min-height:220px}.demo-label{color:var(--accent);font-size:.61rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px}.review-card blockquote{margin:0 0 24px;font-size:1rem;color:#e6e7e2;line-height:1.55}.review-by{margin-top:auto;color:var(--muted);font-size:.75rem}.review-disclaimer{font-size:.72rem;color:var(--muted);margin:16px 0 0}
-    .cta{padding:72px 0;background:#252721;border-block:1px solid #363932}.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:30px}.cta h2{font-size:clamp(1.8rem,4vw,3rem);max-width:730px;margin:0}.cta .btn{flex-shrink:0}
-    .contact{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(36px,8vw,105px)}.contact-copy>p{color:var(--muted);max-width:400px}.contact-card{border:1px solid var(--line);padding:clamp(24px,4vw,38px);background:var(--surface)}.contact-card h3{font-size:1.2rem;font-weight:500;margin-bottom:4px}.contact-location{color:var(--muted);margin-bottom:24px}.contact-details{display:grid;gap:12px;margin-bottom:24px}.contact-row{display:grid;grid-template-columns:100px 1fr;gap:10px;font-size:.86rem}.contact-row dt{color:var(--muted)}.contact-row dd{margin:0;overflow-wrap:anywhere}.contact-hours{border-top:1px solid var(--line);padding-top:18px;display:grid;gap:6px;font-size:.8rem;color:#dedfda}.contact-hours div{display:flex;justify-content:space-between;gap:12px}.contact-hours span:last-child{color:var(--muted)}.contact-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.contact-buttons .btn{min-height:46px}.demo-disclaimer{font-size:.68rem;color:#b1b4ad;margin:18px 0 0}
-    .map-section{padding:0 0 clamp(76px,10vw,130px)}.map-card{position:relative;min-height:330px;overflow:hidden;background:#262a27;border:1px solid var(--line)}.map-card iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) invert(.88) contrast(.78) brightness(.72);opacity:.72}.map-overlay{position:relative;z-index:1;min-height:330px;display:flex;align-items:flex-end;padding:24px;background:linear-gradient(90deg,rgba(17,18,17,.78),transparent 78%),linear-gradient(0deg,rgba(17,18,17,.68),transparent 60%);pointer-events:none}.map-meta{pointer-events:auto}.map-meta p{font-size:.78rem;color:#dedfd9;margin:0 0 12px}.map-meta .btn{min-height:44px;background:#171816;border-color:#656960}
-    footer{border-top:1px solid var(--line);padding:34px 0 24px}.footer-main{display:flex;align-items:center;justify-content:space-between;gap:22px}.footer-brand p{color:var(--muted);font-size:.75rem;margin:8px 0 0}.footer-links{display:flex;gap:24px;font-size:.75rem;color:#d0d2cd}.footer-links a:hover{color:var(--accent)}.footer-bottom{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);margin-top:28px;padding-top:17px;color:var(--muted);font-size:.68rem}
-    @media(max-width:800px){.nav-wrap{height:68px}.nav-links{gap:16px}.nav-links a{font-size:.74rem}.nav-call{padding:9px 12px;font-size:.74rem}.hero{min-height:650px;min-height:min(720px,calc(100svh - 98px))}.hero-image img{object-position:60% center}.intro{grid-template-columns:1fr;gap:10px}.intro-copy{padding-top:0}.service-grid{grid-template-columns:repeat(2,1fr)}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:320px 190px 190px}.gallery-item:first-child{grid-column:span 2;grid-row:auto}.why-layout{grid-template-columns:1fr;gap:32px}.reviews-grid{grid-template-columns:1fr}.review-card{min-height:0}.contact{grid-template-columns:1fr;gap:30px}}
-    @media(max-width:600px){:root{--gutter:22px}.demo-bar{font-size:.59rem}.nav-wrap{height:64px}.nav-call{display:none}.menu-toggle{display:flex;margin-left:auto}.nav-links{display:none;position:absolute;top:64px;left:0;right:0;padding:12px var(--gutter) 22px;background:#151715;border-bottom:1px solid var(--line);align-items:stretch;flex-direction:column;gap:0}.nav-links.is-open{display:flex}.nav-links a{font-size:.92rem;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.07)}.nav-links a:last-child{border:0}.hero{min-height:640px;min-height:min(720px,calc(100svh - 92px))}.hero:before{background:linear-gradient(90deg,rgba(9,10,9,.8),rgba(9,10,9,.33)),linear-gradient(0deg,rgba(9,10,9,.5),transparent 65%)}.hero-image img{object-position:61% center}.hero-content{padding-block:72px}.hero h1{font-size:clamp(3.2rem,15vw,4.4rem)}.hero p{max-width:360px}.hero-actions{align-items:stretch;flex-direction:column;max-width:290px}.hero-actions .btn{width:100%}.section{padding:76px 0}.section-head{margin-bottom:32px}.service-grid{grid-template-columns:1fr}.service-card{min-height:0;padding:25px}.service-icon{margin-bottom:17px}.gallery-grid{grid-template-rows:260px 170px 170px;gap:9px}.gallery-caption{padding:38px 12px 12px;font-size:.72rem}.gallery-note{line-height:1.5}.cta{padding:55px 0}.cta-inner{align-items:flex-start;flex-direction:column}.cta h2{font-size:2rem}.contact-row{grid-template-columns:86px 1fr;font-size:.8rem}.contact-hours{font-size:.74rem}.map-card,.map-overlay{min-height:300px}.footer-main{align-items:flex-start;flex-direction:column}.footer-links{gap:20px}.footer-bottom{flex-direction:column;gap:6px}}
-    @media(max-width:360px){:root{--gutter:18px}.hero h1{font-size:3rem}.brand{font-size:.9rem}.gallery-grid{grid-template-rows:230px 150px 150px}.contact-card{padding:20px}.contact-row{grid-template-columns:76px 1fr}.btn{padding-inline:15px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
+    :root {
+      color-scheme: dark;
+      --bg: #111211;
+      --surface: #191b1a;
+      --surface-2: #202321;
+      --text: #f3f3ef;
+      --muted: #b8bbb5;
+      --line: #3d413d;
+      --accent: #c8a878;
+      --max: 1180px;
+      --gutter: clamp(18px, 5vw, 72px);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.65 "Segoe UI", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    ::selection { background: var(--accent); color: #111; }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 8px;
+      left: 8px;
+      padding: 10px 14px;
+      transform: translateY(-150%);
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .container {
+      width: min(var(--max), calc(100% - 2 * var(--gutter)));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      flex: 0 0 auto;
+      background: currentColor;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1, h2, h3 {
+      line-height: 1.15;
+      letter-spacing: -.035em;
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      font-weight: 500;
+    }
+
+    .section { padding: clamp(76px, 10vw, 132px) 0; }
+
+    .section-head {
+      max-width: 660px;
+      margin-bottom: 44px;
+    }
+
+    .section-head p {
+      max-width: 550px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .demo-bar {
+      padding: 7px 14px;
+      background: #24231f;
+      color: #e2d5c0;
+      font-size: .7rem;
+      letter-spacing: .07em;
+      text-align: center;
+    }
+
+    .header {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      background: rgba(17,18,17,.96);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-wrap {
+      display: flex;
+      height: 76px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      flex: 0 1 auto;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(16px, 2.5vw, 34px);
+      margin-left: auto;
+    }
+
+    .nav-links a,
+    .nav-call {
+      color: #e0e1dd;
+      font-size: .8rem;
+    }
+
+    .nav-links a:hover,
+    .nav-call:hover,
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-call {
+      flex: 0 0 auto;
+      padding: 10px 16px;
+      border: 1px solid #777a73;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .menu-toggle svg { width: 20px; height: 20px; }
+
+    .hero {
+      position: relative;
+      display: flex;
+      min-height: min(760px, calc(100svh - 106px));
+      align-items: center;
+      overflow: hidden;
+      background: #242523;
+    }
+
+    .hero::before {
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(9,10,9,.88), rgba(9,10,9,.57) 48%, rgba(9,10,9,.15)),
+        linear-gradient(0deg, rgba(9,10,9,.35), transparent 40%);
+      content: "";
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-image img { object-position: center 56%; }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      padding-block: 90px;
+    }
+
+    .hero .eyebrow { margin-bottom: 22px; }
+
+    .hero h1 {
+      max-width: 650px;
+      margin-bottom: 20px;
+      font-size: clamp(3.15rem, 8vw, 6.4rem);
+      font-weight: 500;
+    }
+
+    .hero p {
+      max-width: 520px;
+      margin-bottom: 32px;
+      color: #e4e5e0;
+      font-size: clamp(1rem, 2vw, 1.18rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      font-size: .84rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #171715;
+    }
+
+    .btn-primary:hover { background: #d8bd97; }
+
+    .btn-quiet {
+      border-color: rgba(255,255,255,.65);
+      background: rgba(20,20,20,.2);
+      color: #fff;
+    }
+
+    .btn-quiet:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-note {
+      margin: 26px 0 0 !important;
+      color: #d1d3cf !important;
+      font-size: .7rem !important;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      align-items: start;
+      gap: clamp(32px, 8vw, 120px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .intro h2 { max-width: 510px; margin: 12px 0 0; }
+
+    .intro-copy {
+      max-width: 560px;
+      padding-top: 28px;
+      color: var(--muted);
+    }
+
+    .intro-copy p { margin-bottom: 0; }
+    .intro-copy strong { color: var(--text); font-weight: 500; }
+
+    .services,
+    .reviews { background: #151715; }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .service-card {
+      min-height: 210px;
+      padding: 30px;
+      background: var(--bg);
+    }
+
+    .service-icon {
+      width: 34px;
+      height: 34px;
+      margin-bottom: 24px;
+      color: var(--accent);
+    }
+
+    .service-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .service-card p {
+      max-width: 310px;
+      margin: 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr;
+      grid-template-rows: 245px 245px;
+      gap: 14px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      background: var(--surface);
+    }
+
+    .gallery-item:first-child {
+      grid-row: span 2;
+    }
+
+    .gallery-item img {
+      object-position: center;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 46px 18px 16px;
+      background: linear-gradient(transparent, rgba(0,0,0,.82));
+      font-size: .8rem;
+      letter-spacing: .03em;
+    }
+
+    .gallery-caption span {
+      display: block;
+      margin-top: 3px;
+      color: #e0e1dd;
+      font-size: .67rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .gallery-note,
+    .review-disclaimer {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: .76rem;
+    }
+
+    .why { background: var(--surface); }
+
+    .why-layout {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: clamp(40px, 8vw, 110px);
+    }
+
+    .why-intro p {
+      max-width: 400px;
+      color: var(--muted);
+    }
+
+    .why-list { border-top: 1px solid var(--line); }
+
+    .why-item {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 12px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .why-num {
+      padding-top: 3px;
+      color: var(--accent);
+      font-size: .7rem;
+      letter-spacing: .1em;
+    }
+
+    .why-item h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .why-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .review-card {
+      display: flex;
+      min-height: 220px;
+      flex-direction: column;
+      padding: 26px;
+      border: 1px solid var(--line);
+      background: var(--bg);
+    }
+
+    .demo-label {
+      margin-bottom: 22px;
+      color: var(--accent);
+      font-size: .67rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .review-card blockquote {
+      margin: 0 0 24px;
+      color: #e6e7e2;
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .review-by {
+      margin-top: auto;
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    .cta {
+      padding: 72px 0;
+      border-block: 1px solid #42453f;
+      background: #252721;
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .cta h2 {
+      max-width: 730px;
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+    }
+
+    .cta .btn { flex: 0 0 auto; }
+
+    .contact {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: clamp(36px, 8vw, 105px);
+    }
+
+    .contact-copy > p {
+      max-width: 400px;
+      color: var(--muted);
+    }
+
+    .contact-card {
+      padding: clamp(24px, 4vw, 38px);
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .contact-card h3 {
+      margin-bottom: 4px;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    .contact-location {
+      margin-bottom: 24px;
+      color: var(--muted);
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 12px;
+      margin: 0 0 24px;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 100px minmax(0, 1fr);
+      gap: 10px;
+      font-size: .9rem;
+    }
+
+    .contact-row dt { color: var(--muted); }
+    .contact-row dd { min-width: 0; margin: 0; overflow-wrap: anywhere; }
+    .contact-row a { text-decoration: underline; text-underline-offset: 3px; }
+
+    .contact-hours {
+      display: grid;
+      gap: 6px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: #e0e1dd;
+      font-size: .82rem;
+    }
+
+    .contact-hours div {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .contact-hours span:last-child { color: var(--muted); }
+
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .contact-buttons .btn { min-height: 48px; }
+
+    .demo-disclaimer {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: .72rem;
+    }
+
+    .map-section { padding: 0 0 clamp(76px, 10vw, 130px); }
+
+    .map-card {
+      position: relative;
+      min-height: 330px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #262a27;
+    }
+
+    .map-card iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: grayscale(1) invert(.88) contrast(.78) brightness(.72);
+      opacity: .72;
+    }
+
+    .map-overlay {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      min-height: 330px;
+      align-items: flex-end;
+      padding: 24px;
+      background:
+        linear-gradient(90deg, rgba(17,18,17,.82), transparent 78%),
+        linear-gradient(0deg, rgba(17,18,17,.72), transparent 60%);
+      pointer-events: none;
+    }
+
+    .map-meta { pointer-events: auto; }
+
+    .map-meta p {
+      margin: 0 0 12px;
+      color: #e0e1dd;
+      font-size: .8rem;
+    }
+
+    .map-meta .btn {
+      min-height: 46px;
+      border-color: #777a73;
+      background: #171816;
+    }
+
+    footer {
+      padding: 34px 0 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .footer-brand p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      color: #e0e1dd;
+      font-size: .8rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 28px;
+      padding-top: 17px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .72rem;
+    }
+
+    @media (max-width: 900px) {
+      .nav-wrap { height: 68px; gap: 16px; }
+      .nav-links { gap: 14px; }
+      .nav-links a, .nav-call { font-size: .75rem; }
+      .nav-call { padding-inline: 12px; }
+      .hero { min-height: min(720px, calc(100svh - 98px)); }
+      .intro { grid-template-columns: 1fr; gap: 10px; }
+      .intro-copy { padding-top: 0; }
+      .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: 320px 190px 190px;
+      }
+      .gallery-item:first-child {
+        grid-column: span 2;
+        grid-row: auto;
+      }
+      .why-layout { grid-template-columns: 1fr; gap: 32px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .review-card { min-height: 0; }
+      .contact { grid-template-columns: 1fr; gap: 30px; }
+    }
+
+    @media (max-width: 640px) {
+      .demo-bar { font-size: .62rem; }
+      .nav-wrap { height: 64px; }
+      .brand { font-size: .9rem; letter-spacing: .1em; }
+      .nav-call { display: none; }
+      .menu-toggle { display: inline-flex; flex: 0 0 auto; }
+      .nav-links {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        display: none;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+        padding: 8px var(--gutter) 18px;
+        border-bottom: 1px solid var(--line);
+        background: #151715;
+      }
+      .nav-links.is-open { display: flex; }
+      .nav-links a {
+        min-height: 48px;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255,255,255,.1);
+        font-size: .95rem;
+      }
+      .nav-links a:last-child { border-bottom: 0; }
+      .hero { min-height: min(720px, calc(100svh - 92px)); }
+      .hero::before {
+        background:
+          linear-gradient(90deg, rgba(9,10,9,.84), rgba(9,10,9,.4)),
+          linear-gradient(0deg, rgba(9,10,9,.55), transparent 65%);
+      }
+      .hero-image img { object-position: 61% center; }
+      .hero-content { padding-block: 68px; }
+      .hero h1 { font-size: clamp(2.9rem, 14vw, 4.3rem); }
+      .hero-actions {
+        max-width: 340px;
+        align-items: stretch;
+        flex-direction: column;
+      }
+      .hero-actions .btn { width: 100%; }
+      .section { padding: 76px 0; }
+      .section-head { margin-bottom: 32px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: 0; padding: 25px; }
+      .service-icon { margin-bottom: 17px; }
+      .gallery-grid {
+        grid-template-rows: 260px 170px 170px;
+        gap: 9px;
+      }
+      .gallery-caption {
+        padding: 38px 12px 12px;
+        font-size: .74rem;
+      }
+      .gallery-caption span { font-size: .6rem; }
+      .cta { padding: 55px 0; }
+      .cta-inner { align-items: flex-start; flex-direction: column; }
+      .cta h2 { font-size: 2rem; }
+      .contact-row {
+        grid-template-columns: 78px minmax(0, 1fr);
+        font-size: .84rem;
+      }
+      .contact-hours { font-size: .78rem; }
+      .map-card, .map-overlay { min-height: 300px; }
+      .footer-main { align-items: flex-start; flex-direction: column; }
+      .footer-bottom { flex-direction: column; gap: 6px; }
+    }
+
+    @media (max-width: 360px) {
+      .brand { font-size: .82rem; }
+      .gallery-grid { grid-template-rows: 230px 150px 150px; }
+      .contact-card { padding: 20px; }
+      .contact-row { grid-template-columns: 68px minmax(0, 1fr); gap: 8px; }
+      .contact-hours div { gap: 8px; }
+      .btn { padding-inline: 15px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Przejdź do treści</a>
+
   <div class="demo-bar">STRONA DEMONSTRACYJNA · FIKCYJNA MARKA I DANE KONTAKTOWE</div>
+
   <header class="header">
     <div class="container nav-wrap">
       <a class="brand" href="#top" aria-label="CIARACH DETALINIG — strona główna">CIARACH DETALINIG</a>
+
       <nav class="nav-links" id="main-nav" aria-label="Nawigacja główna">
-        <a href="#uslugi">Usługi</a><a href="#realizacje">Realizacje</a><a href="#opinie">Opinie</a><a href="#kontakt">Kontakt</a>
+        <a href="#uslugi">Usługi</a>
+        <a href="#realizacje">Realizacje</a>
+        <a href="#opinie">Opinie</a>
+        <a href="#kontakt">Kontakt</a>
       </nav>
-      <a class="nav-call" href="tel:+48000000000" aria-label="Zadzwoń, numer demonstracyjny">Zadzwoń</a>
-      <button class="menu-toggle" type="button" aria-label="Otwórz menu" aria-controls="main-nav" aria-expanded="false">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+
+      <a class="nav-call" href="tel:+48000000000" aria-label="Zadzwoń — numer demonstracyjny">Zadzwoń</a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Otwórz menu"
+        aria-controls="main-nav"
+        aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
       </button>
     </div>
   </header>
-  <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-image"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=85" alt="Elegancki samochód sportowy na ciemnym tle" fetchpriority="high"></div>
+
+  <main id="main-content">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-image" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=85"
+          alt=""
+          fetchpriority="high"
+          decoding="async">
+      </div>
       <div class="container hero-content">
         <div class="eyebrow">Auto detailing · Gliwice</div>
         <h1 id="hero-title">Detal, który widać.</h1>
         <p>Profesjonalna pielęgnacja, korekta i ochrona samochodu w Gliwicach.</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="#kontakt">Umów samochód <span aria-hidden="true">↗</span></a><a class="btn btn-quiet" href="#realizacje">Zobacz realizacje</a></div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tel:+48000000000" aria-label="Zadzwoń — numer demonstracyjny">
+            Zadzwoń
+          </a>
+          <a class="btn btn-quiet" href="#realizacje">Zobacz przykładowe zdjęcia</a>
+        </div>
         <p class="hero-note">Przykładowa marka · demo portfolio</p>
       </div>
     </section>
+
     <section class="section container intro" aria-labelledby="intro-title">
-      <div><div class="eyebrow">Dobra pielęgnacja zaczyna się od rozmowy</div><h2 id="intro-title">Twój samochód. Nasza dbałość o szczegóły.</h2></div>
-      <div class="intro-copy"><p><strong>Każde auto ma inne potrzeby.</strong> Dlatego zaczynamy od poznania jego stanu i Twoich oczekiwań. Potem dobieramy zakres prac — od dokładnego mycia po odświeżenie i ochronę lakieru. Bez pośpiechu, z uwagą na detale.</p></div>
+      <div>
+        <div class="eyebrow">Pielęgnacja zaczyna się od rozmowy</div>
+        <h2 id="intro-title">Twój samochód. Nasza dbałość o szczegóły.</h2>
+      </div>
+      <div class="intro-copy">
+        <p><strong>Każde auto ma inne potrzeby.</strong> Najpierw poznajemy jego stan i Twoje oczekiwania, a potem dobieramy zakres prac — od dokładnego mycia po odświeżenie i ochronę lakieru.</p>
+      </div>
     </section>
+
     <section class="section services" id="uslugi" aria-labelledby="services-title">
-      <div class="container"><div class="section-head"><div class="eyebrow">Zakres usług</div><h2 id="services-title">Pielęgnacja dopasowana do auta</h2><p>Wybierz pojedynczą usługę lub porozmawiajmy o tym, czego potrzebuje Twój samochód.</p></div>
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Zakres usług</div>
+          <h2 id="services-title">Pielęgnacja dopasowana do auta</h2>
+          <p>Zakres prac ustalamy po rozmowie i ocenie stanu samochodu.</p>
+        </div>
+
         <div class="service-grid">
-          <article class="service-card"><div class="service-icon"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M8 25h20l-2-9H10l-2 9Z M11 16l3-6h8l3 6M11 25v3m14-3v3M12 21h.1m11.8 0h.1"/></svg></div><h3>Detailing wnętrza</h3><p>Dokładne czyszczenie i odświeżenie kabiny, z troską o różne powierzchnie.</p></article>
-          <article class="service-card"><div class="service-icon"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M18 6v5m0 14v5M6 18h5m14 0h5M9.5 9.5l3.5 3.5m10 10 3.5 3.5m0-17-3.5 3.5m-10 10-3.5 3.5M18 14a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg></div><h3>Mycie detailingowe</h3><p>Staranna pielęgnacja nadwozia i kół z doborem bezpiecznych metod.</p></article>
-          <article class="service-card"><div class="service-icon"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M8 27 23 12l4 4-15 15H8v-4ZM20 15l4 4M24 8l1.5-3L27 8l3 1.5L27 11l-1.5 3L24 11l-3-1.5L24 8Z"/></svg></div><h3>Korekta lakieru</h3><p>Praca nad wyglądem lakieru, której zakres ustalamy po ocenie jego stanu.</p></article>
-          <article class="service-card"><div class="service-icon"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="m18 5 2.5 8.5L29 16l-8.5 2.5L18 27l-2.5-8.5L7 16l8.5-2.5L18 5Z M28 23l1.3 3.7L33 28l-3.7 1.3L28 33l-1.3-3.7L23 28l3.7-1.3L28 23Z"/></svg></div><h3>Powłoki ochronne</h3><p>Dodatkowa warstwa ochrony i łatwiejsza bieżąca pielęgnacja samochodu.</p></article>
-          <article class="service-card"><div class="service-icon"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M7 24c4-7 18-7 22 0v5H7v-5Z M11 22v-5a7 7 0 0 1 14 0v5M12 28v3m12-3v3M14 17h8"/></svg></div><h3>Polerowanie reflektorów</h3><p>Odświeżenie wyglądu reflektorów i przywrócenie im większej przejrzystości.</p></article>
-          <article class="service-card"><div class="service-icon"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M8 26h20l-2-9H10l-2 9ZM11 17l3-6h8l3 6M11 26v3m14-3v3M15 21h6M29 8v7m-3.5-3.5h7"/></svg></div><h3>Przygotowanie auta do sprzedaży</h3><p>Kompleksowe odświeżenie, które pomaga zaprezentować samochód z dobrej strony.</p></article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 36 36"><path d="M8 25h20l-2-9H10l-2 9Z M11 16l3-6h8l3 6M11 25v3m14-3v3M12 21h.1m11.8 0h.1"/></svg>
+            </div>
+            <h3>Detailing wnętrza</h3>
+            <p>Dokładne czyszczenie i odświeżenie kabiny z uwzględnieniem różnych powierzchni.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 36 36"><path d="M18 6v5m0 14v5M6 18h5m14 0h5M9.5 9.5l3.5 3.5m10 10 3.5 3.5m0-17-3.5 3.5m-10 10-3.5 3.5M18 14a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+            </div>
+            <h3>Mycie detailingowe</h3>
+            <p>Staranna pielęgnacja nadwozia i kół z doborem bezpiecznych metod.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 36 36"><path d="M8 27 23 12l4 4-15 15H8v-4ZM20 15l4 4M24 8l1.5-3L27 8l3 1.5L27 11l-1.5 3L24 11l-3-1.5L24 8Z"/></svg>
+            </div>
+            <h3>Korekta lakieru</h3>
+            <p>Poprawa wyglądu lakieru. Zakres prac określamy po ocenie jego stanu.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 36 36"><path d="m18 5 2.5 8.5L29 16l-8.5 2.5L18 27l-2.5-8.5L7 16l8.5-2.5L18 5Z M28 23l1.3 3.7L33 28l-3.7 1.3L28 33l-1.3-3.7L23 28l3.7-1.3L28 23Z"/></svg>
+            </div>
+            <h3>Powłoki ochronne</h3>
+            <p>Dodatkowa ochrona lakieru i łatwiejsza codzienna pielęgnacja.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 36 36"><path d="M7 24c4-7 18-7 22 0v5H7v-5Z M11 22v-5a7 7 0 0 1 14 0v5M12 28v3m12-3v3M14 17h8"/></svg>
+            </div>
+            <h3>Polerowanie reflektorów</h3>
+            <p>Odświeżenie wyglądu reflektorów i poprawa ich przejrzystości.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 36 36"><path d="M8 26h20l-2-9H10l-2 9ZM11 17l3-6h8l3 6M11 26v3m14-3v3M15 21h6M29 8v7m-3.5-3.5h7"/></svg>
+            </div>
+            <h3>Przygotowanie auta do sprzedaży</h3>
+            <p>Odświeżenie samochodu, by lepiej zaprezentować go potencjalnym kupującym.</p>
+          </article>
         </div>
       </div>
     </section>
+
     <section class="section container" id="realizacje" aria-labelledby="gallery-title">
-      <div class="section-head"><div class="eyebrow">Wybrane prace</div><h2 id="gallery-title">Efekt zaczyna się od detalu</h2><p>Przykładowa galeria zdjęć stockowych — przeznaczona do podmiany na własne, autentyczne realizacje.</p></div>
+      <div class="section-head">
+        <div class="eyebrow">Galeria demonstracyjna</div>
+        <h2 id="gallery-title">Przykładowe zdjęcia</h2>
+        <p>Zdjęcia stockowe pokazują przykładowy układ galerii. Nie przedstawiają realizacji firmy.</p>
+      </div>
+
       <div class="gallery-grid">
-        <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80" alt="Ciemny samochód sportowy sfotografowany z przodu" loading="lazy"><figcaption class="gallery-caption">Korekta lakieru<span>Przykładowe zdjęcie stockowe</span></figcaption></figure>
-        <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=80" alt="Zbliżenie na lśniące nadwozie samochodu" loading="lazy"><figcaption class="gallery-caption">Powłoka ochronna<span>Przykładowe zdjęcie stockowe</span></figcaption></figure>
-        <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?auto=format&fit=crop&w=900&q=80" alt="Samochód w eleganckim, ciemnym otoczeniu" loading="lazy"><figcaption class="gallery-caption">Pielęgnacja nadwozia<span>Przykładowe zdjęcie stockowe</span></figcaption></figure>
-        <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=80" alt="Samochód zaparkowany w miejskim otoczeniu" loading="lazy"><figcaption class="gallery-caption">Przygotowanie do sprzedaży<span>Przykładowe zdjęcie stockowe</span></figcaption></figure>
-        <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=900&q=80" alt="Wnętrze samochodu z widoczną deską rozdzielczą" loading="lazy"><figcaption class="gallery-caption">Detailing wnętrza<span>Przykładowe zdjęcie stockowe</span></figcaption></figure>
+        <figure class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80" alt="Stockowe zdjęcie ciemnego samochodu sportowego z przodu" loading="lazy" decoding="async">
+          <figcaption class="gallery-caption">Korekta lakieru<span>Zdjęcie stockowe</span></figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=80" alt="Stockowe zdjęcie nadwozia samochodu" loading="lazy" decoding="async">
+          <figcaption class="gallery-caption">Powłoka ochronna<span>Zdjęcie stockowe</span></figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?auto=format&fit=crop&w=900&q=80" alt="Stockowe zdjęcie samochodu w ciemnym otoczeniu" loading="lazy" decoding="async">
+          <figcaption class="gallery-caption">Pielęgnacja nadwozia<span>Zdjęcie stockowe</span></figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=80" alt="Stockowe zdjęcie samochodu w miejskim otoczeniu" loading="lazy" decoding="async">
+          <figcaption class="gallery-caption">Przygotowanie do sprzedaży<span>Zdjęcie stockowe</span></figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=900&q=80" alt="Stockowe zdjęcie wnętrza samochodu i deski rozdzielczej" loading="lazy" decoding="async">
+          <figcaption class="gallery-caption">Detailing wnętrza<span>Zdjęcie stockowe</span></figcaption>
+        </figure>
       </div>
-      <p class="gallery-note">Zdjęcia demonstracyjne z Unsplash; nie przedstawiają realizacji tej fikcyjnej marki.</p>
+      <p class="gallery-note">Zdjęcia demonstracyjne z Unsplash. Przed publikacją zastąp je własnymi, autentycznymi zdjęciami.</p>
     </section>
-    <section class="section why" aria-labelledby="why-title"><div class="container why-layout">
-      <div class="why-intro"><div class="eyebrow">Dlaczego CIARACH DETALINIG</div><h2 id="why-title">Uważność na każdym etapie</h2><p>Dobry efekt to nie tylko praca przy samochodzie. To również jasne ustalenia i spokojna opieka nad autem.</p></div>
-      <div class="why-list">
-        <article class="why-item"><div class="why-num">01</div><div><h3>Indywidualne podejście</h3><p>Zakres pielęgnacji dobierany jest do stanu auta i Twoich oczekiwań.</p></div></article>
-        <article class="why-item"><div class="why-num">02</div><div><h3>Dokładność</h3><p>Zwracamy uwagę na detale, także w miejscach łatwych do przeoczenia.</p></div></article>
-        <article class="why-item"><div class="why-num">03</div><div><h3>Bezpieczna pielęgnacja</h3><p>Metody i środki dobieramy z troską o czyszczone powierzchnie.</p></div></article>
-        <article class="why-item"><div class="why-num">04</div><div><h3>Przejrzysta komunikacja</h3><p>Wiesz, jaki zakres prac planujemy i czego możesz się spodziewać.</p></div></article>
+
+    <section class="section why" aria-labelledby="why-title">
+      <div class="container why-layout">
+        <div class="why-intro">
+          <div class="eyebrow">Jak pracujemy</div>
+          <h2 id="why-title">Uważność na każdym etapie</h2>
+          <p>Przed rozpoczęciem pracy ustalamy zakres i omawiamy stan samochodu.</p>
+        </div>
+
+        <div class="why-list">
+          <article class="why-item">
+            <div class="why-num" aria-hidden="true">01</div>
+            <div><h3>Indywidualny zakres</h3><p>Dobieramy pielęgnację do stanu auta i Twoich oczekiwań.</p></div>
+          </article>
+          <article class="why-item">
+            <div class="why-num" aria-hidden="true">02</div>
+            <div><h3>Dokładna praca</h3><p>Zwracamy uwagę także na miejsca, które łatwo przeoczyć.</p></div>
+          </article>
+          <article class="why-item">
+            <div class="why-num" aria-hidden="true">03</div>
+            <div><h3>Dobór metod</h3><p>Metody i środki dobieramy do czyszczonych powierzchni.</p></div>
+          </article>
+          <article class="why-item">
+            <div class="why-num" aria-hidden="true">04</div>
+            <div><h3>Jasne ustalenia</h3><p>Przed pracą omawiamy jej zakres i oczekiwany efekt.</p></div>
+          </article>
+        </div>
       </div>
-    </div></section>
-    <section class="section reviews" id="opinie" aria-labelledby="reviews-title"><div class="container">
-      <div class="section-head"><div class="eyebrow">Głosy klientów</div><h2 id="reviews-title">Opinie klientów</h2><p>Treści poniżej to wyłącznie przykłady układu. Zastąp je prawdziwymi opiniami za zgodą ich autorów.</p></div>
-      <div class="reviews-grid">
-        <article class="review-card"><div class="demo-label">Przykładowa opinia — demo</div><blockquote>„Wnętrze odzyskało świeżość, a cały proces przebiegł bardzo sprawnie.”</blockquote><div class="review-by">Przykładowa treść · bez przypisania do osoby</div></article>
-        <article class="review-card"><div class="demo-label">Przykładowa opinia — demo</div><blockquote>„Lakier wygląda świetnie. Doceniam jasne omówienie zakresu przed pracą.”</blockquote><div class="review-by">Przykładowa treść · bez przypisania do osoby</div></article>
-        <article class="review-card"><div class="demo-label">Przykładowa opinia — demo</div><blockquote>„Auto po pielęgnacji prezentuje się znakomicie. Chętnie wrócę.”</blockquote><div class="review-by">Przykładowa treść · bez przypisania do osoby</div></article>
-      </div><p class="review-disclaimer">Przykładowe opinie demonstracyjne. Nie są prawdziwymi recenzjami klientów.</p>
-    </div></section>
-    <section class="cta" aria-labelledby="cta-title"><div class="container cta-inner"><h2 id="cta-title">Zadbaj o samochód, zanim pojawią się ślady codziennej jazdy.</h2><a class="btn btn-primary" href="#kontakt">Skontaktuj się <span aria-hidden="true">↗</span></a></div></section>
+    </section>
+
+    <section class="section reviews" id="opinie" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Przykładowe treści</div>
+          <h2 id="reviews-title">Opinie — układ demonstracyjny</h2>
+          <p>Poniższe teksty są fikcyjne. Nie są recenzjami klientów.</p>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="demo-label">Tekst przykładowy · demo</div>
+            <blockquote>„Wnętrze odzyskało świeżość, a cały proces przebiegł sprawnie.”</blockquote>
+            <div class="review-by">Przykładowa treść — bez przypisania do osoby</div>
+          </article>
+          <article class="review-card">
+            <div class="demo-label">Tekst przykładowy · demo</div>
+            <blockquote>„Doceniam jasne omówienie zakresu przed rozpoczęciem pracy.”</blockquote>
+            <div class="review-by">Przykładowa treść — bez przypisania do osoby</div>
+          </article>
+          <article class="review-card">
+            <div class="demo-label">Tekst przykładowy · demo</div>
+            <blockquote>„Auto po pielęgnacji prezentuje się bardzo dobrze.”</blockquote>
+            <div class="review-by">Przykładowa treść — bez przypisania do osoby</div>
+          </article>
+        </div>
+        <p class="review-disclaimer">Przykładowe opinie demonstracyjne. Nie są prawdziwymi recenzjami klientów.</p>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="container cta-inner">
+        <h2 id="cta-title">Porozmawiajmy o pielęgnacji Twojego samochodu.</h2>
+        <a class="btn btn-primary" href="tel:+48000000000" aria-label="Zadzwoń — numer demonstracyjny">Zadzwoń</a>
+      </div>
+    </section>
+
     <section class="section container contact" id="kontakt" aria-labelledby="contact-title">
-      <div class="contact-copy"><div class="eyebrow">Porozmawiajmy o Twoim aucie</div><h2 id="contact-title">Kontakt</h2><p>Masz pytanie o usługę lub chcesz ustalić zakres prac? W demonstracyjnej wersji strony dane służą wyłącznie prezentacji projektu.</p></div>
-      <div class="contact-card"><h3>CIARACH DETALINIG</h3><p class="contact-location">Gliwice · lokalizacja ogólna</p>
-        <dl class="contact-details"><div class="contact-row"><dt>Telefon</dt><dd><a href="tel:+48000000000">+48 000 000 000</a></dd></div><div class="contact-row"><dt>E-mail</dt><dd><a href="mailto:kontakt@blackline-demo.pl">kontakt@blackline-demo.pl</a></dd></div></dl>
-        <div class="contact-hours" aria-label="Godziny otwarcia"><div><span>Poniedziałek–Piątek</span><span>08:00–18:00</span></div><div><span>Sobota</span><span>09:00–14:00</span></div><div><span>Niedziela</span><span>zamknięte</span></div></div>
-        <div class="contact-buttons"><a class="btn btn-primary" href="tel:+48000000000">Zadzwoń</a><a class="btn btn-quiet" href="mailto:kontakt@blackline-demo.pl">Napisz e-mail</a></div>
-        <p class="demo-disclaimer">Dane kontaktowe i godziny są przykładowe. Firma jest fikcyjna.</p>
+      <div class="contact-copy">
+        <div class="eyebrow">Dane demonstracyjne</div>
+        <h2 id="contact-title">Kontakt</h2>
+        <p>Firma, numer telefonu, adres e-mail i godziny otwarcia są fikcyjne i służą wyłącznie prezentacji projektu.</p>
+      </div>
+
+      <div class="contact-card">
+        <h3>CIARACH DETALINIG</h3>
+        <p class="contact-location">Gliwice · lokalizacja ogólna</p>
+
+        <dl class="contact-details">
+          <div class="contact-row">
+            <dt>Telefon</dt>
+            <dd><a href="tel:+48000000000" aria-label="Zadzwoń — numer demonstracyjny">+48 000 000 000</a></dd>
+          </div>
+          <div class="contact-row">
+            <dt>E-mail</dt>
+            <dd><a href="mailto:kontakt@ciarach-demo.pl">kontakt@ciarach-demo.pl</a></dd>
+          </div>
+        </dl>
+
+        <div class="contact-hours" aria-label="Przykładowe godziny otwarcia">
+          <div><span>Poniedziałek–piątek</span><span>08:00–18:00</span></div>
+          <div><span>Sobota</span><span>09:00–14:00</span></div>
+          <div><span>Niedziela</span><span>zamknięte</span></div>
+        </div>
+
+        <div class="contact-buttons">
+          <a class="btn btn-primary" href="tel:+48000000000" aria-label="Zadzwoń — numer demonstracyjny">Zadzwoń</a>
+          <a class="btn btn-quiet" href="mailto:kontakt@ciarach-demo.pl">Napisz e-mail</a>
+        </div>
+        <p class="demo-disclaimer">Firma i dane kontaktowe są fikcyjne.</p>
       </div>
     </section>
-    <section class="map-section container" aria-label="Mapa ogólnej lokalizacji Gliwic"><div class="map-card">
-      <iframe title="Mapa centrum Gliwic — lokalizacja ogólna" src="https://www.openstreetmap.org/export/embed.html?bbox=18.650%2C50.285%2C18.700%2C50.315&layer=mapnik&marker=50.297%2C18.665" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      <div class="map-overlay"><div class="map-meta"><p>Gliwice · lokalizacja poglądowa, bez adresu firmy</p><a class="btn btn-quiet" href="https://www.google.com/maps/search/?api=1&query=Gliwice" target="_blank" rel="noopener noreferrer">Otwórz trasę w Google Maps <span aria-hidden="true">↗</span></a></div></div>
-    </div></section>
+
+    <section class="map-section container" aria-label="Mapa poglądowa Gliwic">
+      <div class="map-card">
+        <iframe
+          title="Mapa centrum Gliwic — lokalizacja poglądowa"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=18.650%2C50.285%2C18.700%2C50.315&layer=mapnik&marker=50.297%2C18.665"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="map-overlay">
+          <div class="map-meta">
+            <p>Gliwice · lokalizacja poglądowa, bez adresu firmy</p>
+            <a class="btn btn-quiet" href="https://www.google.com/maps/search/?api=1&amp;query=Gliwice" target="_blank" rel="noopener noreferrer">
+              Pokaż Gliwice na mapie <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer><div class="container"><div class="footer-main"><div class="footer-brand"><a class="brand" href="#top">CIARACH DETALINIG</a><p>Auto detailing · Gliwice</p></div><nav class="footer-links" aria-label="Linki w stopce"><a href="#uslugi">Usługi</a><a href="#realizacje">Realizacje</a><a href="#kontakt">Kontakt</a></nav></div><div class="footer-bottom"><span>Demo portfolio — fikcyjna firma demonstracyjna.</span><span>CIARACH DETALINIG · Gliwice</span></div></div></footer>
+
+  <footer>
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="brand" href="#top">CIARACH DETALINIG</a>
+          <p>Auto detailing · Gliwice</p>
+        </div>
+        <nav class="footer-links" aria-label="Linki w stopce">
+          <a href="#uslugi">Usługi</a>
+          <a href="#realizacje">Galeria</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>Demo portfolio — fikcyjna firma.</span>
+        <span>CIARACH DETALINIG · Gliwice</span>
+      </div>
+    </div>
+  </footer>
+
   <script>
     const menuButton = document.querySelector('.menu-toggle');
     const navigation = document.querySelector('#main-nav');
+    const mobileMenu = window.matchMedia('(max-width: 640px)');
+
+    function setMenuOpen(open) {
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Zamknij menu' : 'Otwórz menu');
+      navigation.classList.toggle('is-open', open);
+    }
+
     menuButton.addEventListener('click', () => {
-      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-      menuButton.setAttribute('aria-expanded', String(!isOpen));
-      menuButton.setAttribute('aria-label', isOpen ? 'Otwórz menu' : 'Zamknij menu');
-      navigation.classList.toggle('is-open', !isOpen);
+      setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true');
     });
+
     navigation.addEventListener('click', (event) => {
       if (event.target.closest('a')) {
-        navigation.classList.remove('is-open');
-        menuButton.setAttribute('aria-expanded', 'false');
-        menuButton.setAttribute('aria-label', 'Otwórz menu');
+        setMenuOpen(false);
       }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+        setMenuOpen(false);
+        menuButton.focus();
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      if (
+        menuButton.getAttribute('aria-expanded') === 'true' &&
+        !navigation.contains(event.target) &&
+        !menuButton.contains(event.target)
+      ) {
+        setMenuOpen(false);
+      }
+    });
+
+    mobileMenu.addEventListener('change', (event) => {
+      if (!event.matches) setMenuOpen(false);
     });
   </script>
 </body>
 </html>
-
-
-
+```
